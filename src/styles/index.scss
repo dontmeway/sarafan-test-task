@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url('https://wallpapercave.com/wp/wp2003043.jpg') no-repeat center /cover;
+    height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper {
+    padding: 20px;
+
+}
+
+.currentDate {
+    margin-bottom: 20px;
+    width: 60%;
+    background-color: #F48FB1;
+    text-shadow: -2px 1px 3px #06070D;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
+    .currentDate__temp {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div {
+            display: flex;
+            margin-right: 20px;
+            p {
+                font-size: 160px;
+            }
+            span {
+                font-size: 50px;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    right: -15px;
+                    width: 10px;
+                    height: 10px;
+                    content: '';
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    
+                }
+            }
+        }
+    }
+    .weather {
+        margin-bottom: 10px;
+        p {
+            font-size: 50px;
+
+        }
+        span {
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+    }
+    .currentDay {
+        margin: 10px 0;
+        display: flex;
+        span {
+            height: 16px;
+            width: 1px;
+            background: white;
+            margin: 0 10px;
+            display: inline-block;
+        }
+    }
+    .dayTimes {
+        display: flex;
+        margin-bottom: 15px;
+        font-size: 18px;
+        div {
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            i {
+                margin: 0 10px;
+            }
+        }
+    }
+    .wind, .humidity {
+        font-size: 25px;
+        i {
+            margin: 0 10px;
+        }
+    }
+    
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .card {
+        width: 10%;
+        cursor: pointer;
+        transition: 200ms all;
+        background: #F48FB1;
+        min-height: 250px;
+        border-radius: 10px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.75);
+        font-size: 25px;
+        color: #ffffff;
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+        p {
+            font-size: 28px;
+            span {
+                font-size: 18px;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    right: -8px;
+                    width: 4px;
+                    height: 4px;
+                    content: '';
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    
+                }
+            }
+        }
+    }
+}
