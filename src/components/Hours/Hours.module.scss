@@ -1,0 +1,115 @@
+.hours {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 20px;
+    max-width: 1280px;
+    width: 100%;
+    margin: auto;
+    .hours__body {
+        margin-bottom: 30px;
+        h2 {
+            margin-bottom: 20px;
+
+        }
+        @media (max-width: 900px) {
+            .hour {
+                .hour__left {
+                    width: 55% !important;
+                    h5 {
+                        font-size: 14px !important;
+
+                    }
+                    p {
+                        font-size: 14px !important;
+                    }
+                }
+                .hour__right {
+                    width: 40% !important; 
+                    div {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 650px) {
+            .hour {
+                flex-direction: column;
+                .hour__left, .hour__right {
+                    width: 100% !important;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        @media (max-width: 400px) {
+            .hour {
+                .hour__left {
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .hour {
+            background: #6e3f98;
+            border-radius: 15px;
+            color: #ffffff;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .hour__left {
+                display: flex;
+                align-items: center;
+                width: 50%;
+                justify-content: space-between;
+                h5 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 25px;
+                }
+                span {
+                    position: relative;
+                    b {
+                        font-size: 25px;
+                        margin-right: 5px;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 28px;
+                        width: 4px;
+                        height: 4px;
+                        border: 2px solid white;
+                        border-radius: 50%;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: -6px;
+                        top: 9px;
+                        width: 3px;
+                        height: 3px;
+                        border: 1px solid white;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .hour__right {
+                display: flex;
+                width: 30%;
+                justify-content: space-between;
+                font-size: 20px;
+                div {
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { handleChangeCurrent, handleCurrent, handleDays } from "../utils/handlers";
+import { handleCurrent, handleDays, handleHours } from "../utils/handlers";
 
 
 
@@ -9,14 +9,15 @@ const initialState = {
     days: {},
     hours: {},
     isLoading: false,
-    error: null
+    error: null,
+    units: "metric"
 }
 
 export const getWeather = createAsyncThunk(
     "weather/getWeather",   
-    async({key, lat, lon}, thunkApi) => {
+    async({key, lat, lon, units}, thunkApi) => {
         try {
-            const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${key}`)
+            const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${key}`)
             return data
         } catch(err) {
             thunkApi.rejectWithValue(err)
@@ -32,8 +33,8 @@ const weatherSlice = createSlice({
     name: "weatherSlice",
     initialState,
     reducers: {
-        changeCurrent: (state, { payload }) => {
-            state.currentDate = handleChangeCurrent(payload)
+        changeUnit: (state, { payload }) => {
+            state.units = payload
         }
     },
     extraReducers: {
@@ -44,6 +45,7 @@ const weatherSlice = createSlice({
             state.isLoading = false;
             state.currentDate = handleCurrent(payload.current)
             state.days = handleDays(payload.daily)
+            state.hours = handleHours(payload.hourly)
 
         },
         [getWeather.rejected]: (state, { payload }) => {
@@ -52,5 +54,5 @@ const weatherSlice = createSlice({
         }
     }
 })
-export const { changeCurrent } = weatherSlice.actions
+export const { changeCurrent, changeUnit } = weatherSlice.actions
 export const weatherReducer = weatherSlice.reducer

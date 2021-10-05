@@ -1,0 +1,144 @@
+.day {
+        padding: 10px 20px;
+        transition: 200ms all;
+        cursor: pointer;
+        .day__submain {
+            @media (max-width: 900px) {
+                flex-wrap: wrap !important;
+                div {
+                    width: 150px !important;
+                    margin-bottom: 20px;
+                }
+            }
+            display: flex;
+            justify-content: space-around;
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                border-radius: 10px;
+                background: #6e3f98;
+                height: 200px;
+                width: 15%;
+                color: white;
+                p {
+                    font-size: 30px;
+                }
+                span {
+                    font-size: 30px;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        right: -10px;
+                        top: 0;
+                        width: 5px;
+                        height: 5px;
+                        border: 2px solid white;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        .day__main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            @media (max-width: 1000px) {
+                .day__left {
+                    width: 60% !important;
+                }
+                .day__right {
+                    div {
+                        font-size: 16px !important;
+                    }
+                }
+            }
+            @media (max-width: 700px) {
+                flex-direction: column;
+                .day__left {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    h5 {
+                        display: none;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                    img {
+                        display: none;
+                    }
+                        }
+                .day__right {
+                    width: 100% !important;
+                    margin-bottom: 20px;
+                    div {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+            .day__right {
+                display: flex;
+                width: 30%;
+                justify-content: space-between;
+                align-items: center;
+                div {
+                    font-size: 20px;
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .day__left {
+                display: flex;
+                align-items: center;
+                width: 40%;
+                justify-content: space-between;
+               span {
+                   position: relative;
+                   b {
+                       font-size: 25px;
+                       margin-right: 5px;
+                   }
+                   &::before {
+                       content: '';
+                       position: absolute;
+                       left: 28px;
+                       width: 4px;
+                       height: 4px;
+                       border: 2px solid black;
+                       border-radius: 50%;
+                   }
+                   &::after {
+                       content: '';
+                       position: absolute;
+                       right: -6px;
+                       top: 9px;
+                       width: 3px;
+                       height: 3px;
+                       border: 1px solid black;
+                       border-radius: 50%;
+                   }
+               }
+               h5 {
+                   font-size: 20px;
+               }
+            }
+        }
+        &:first-child {
+            border-radius: 20px 20px 0 0;
+        }
+        &:last-child {
+            border-radius:0 0 20px 20px;
+        }
+        &:hover {
+            background: rgba(0,0,0,0.1);
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid black;
+        }
+        
+    }
